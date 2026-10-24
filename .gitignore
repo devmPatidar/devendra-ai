@@ -1,0 +1,24 @@
+# Secrets and credentials
+work/.env
+work/.env.*
+!work/.env.example
+work/key-vault/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.ipynb_checkpoints/
+
+# Generated runtime data
+chroma_db/
+vectorstore/
+faiss/
+*.faiss
+*.pkl
+*.log
+node_modules/
+dist/
+build/
