@@ -1,0 +1,158 @@
+Blelow are test query executed: 
+Query 1. How do I disable SMBv1 according to the CIS benchmark?
+Resposne:
+
+Available Tools
+----------------
+cis_security_tool
+lookup_cve
+lookup_cisa_kev
+lookup_attack
+lookup_epss
+
+Tools Used
+----------------
+cis_security_tool
+
+===========================
+To disable SMBv1 according to the CIS benchmark, follow these steps:
+
+1. Open the Group Policy Management Console.
+2. Navigate to:
+   - For the server: Computer Configuration → Policies → Administrative Templates → MS Security Guide → Configure SMB v1 server. Set this to Disabled.
+   - For the client: Computer Configuration → Policies → Administrative Templates → MS Security Guide → Configure SMB v1 client driver. Set this to Enabled: Disable driver (recommended).
+
+Additional notes:
+- You may need to add the MS Security Guide (SecGuide.admx/adml) templates if they are not present by default.
+- Test these changes in a controlled environment to ensure no legacy systems or applications are affected.
+
+Disabling SMBv1 is recommended by CIS to reduce exposure to vulnerabilities associated with this outdated protocol.
+
+------------------------------------------------------------------------------------------------------------
+
+Query 2.  Show the latest vulnerabilities affecting Windows SMB
+Resposne:
+
+Available Tools
+----------------
+cis_security_tool
+lookup_cve
+lookup_cisa_kev
+lookup_attack
+lookup_epss
+
+Tools Used
+----------------
+lookup_cve
+lookup_cisa_kev
+
+===========================
+Here are some of the latest vulnerabilities affecting Windows SMB:
+
+From CISA Known Exploited Vulnerabilities (most relevant and recent):
+
+1. CVE-2025-33073 (2025)
+   - Description: Microsoft Windows SMB Client contains an improper access control vulnerability that could allow for privilege escalation. An attacker could execute a specially crafted malicious script to coerce the victim machine to connect back to the attack system using SMB and authenticate.
+   - Action: Apply mitigations per vendor instructions, follow applicable BOD 22-01 guidance for cloud services, or discontinue use of the product if mitigations are unavailable.
+
+Query 2. CVE-2019-0703 (2019)
+   - Description: An information disclosure vulnerability exists in the way that the Windows SMB Server handles certain requests, which could lead to information disclosure from the server.
+   - Action: Apply updates per vendor instructions.
+
+From the NVD (older vulnerabilities, but related to Windows SMB):
+
+- CVE-1999-1387: Windows NT 4.0 SP2 allows remote attackers to cause a denial of service (crash), possibly via malformed SMB packets.
+- CVE-1999-0225: Windows NT 4.0 allows remote attackers to cause a denial of service via a malformed SMB logon request.
+- CVE-1999-0391: SMB authentication in Windows 95/98 can be replayed, allowing impersonation.
+- CVE-2000-0544: Windows NT/2000 hosts allow denial of service via malformed DCE/RPC SMBwriteX requests.
+- CVE-2000-1227: Windows NT/2000 hosts allow denial of service by sending multiple SMBnegprots requests.
+
+The most critical and recent is CVE-2025-33073. It is recommended to prioritize patching or mitigating this vulnerability. If you need more details or want to check the exploitability or risk score for any of these CVEs, let me know!
+------------------------------------------------------------------------------------------------------------
+
+Query 3.  List the latest  critical CVEs for OpenSSL
+
+Resposne:
+
+Available Tools
+----------------
+cis_security_tool
+lookup_cve
+lookup_cisa_kev
+lookup_attack
+lookup_epss
+
+Tools Used
+----------------
+lookup_cve
+
+===========================
+Here are some CVEs related to OpenSSL, but these are not the latest or critical ones. The results provided are older vulnerabilities. Would you like me to search for the most recent and critical OpenSSL CVEs specifically, or filter for those with a "critical" severity? Let me know your preference so I can refine the results for you.
+
+-----------------------------------------------------------------------------------------------------------
+
+
+Query 4.  How can I secure Windows SMB against recent attacks?
+Response:
+
+Available Tools
+----------------
+cis_security_tool
+lookup_cve
+lookup_cisa_kev
+lookup_attack
+lookup_epss
+
+Tools Used
+----------------
+cis_security_tool
+
+===========================
+To secure Windows SMB against recent attacks, follow these best practices:
+
+1. Disable SMBv1: SMBv1 is outdated and vulnerable. Use Group Policy to disable it on both clients and servers.
+2. Enable SMB Signing: Require digital signing of SMB communications to prevent session hijacking.
+3. Enforce SMB Encryption: Enable encryption for SMB traffic to protect data in transit from interception.
+4. Audit SMB Activity: Configure auditing to log events related to SMB encryption and signing, helping you detect insecure connections.
+5. Remove Unnecessary Services: Uninstall or disable SMB services if they are not needed on your systems.
+
+Before deploying these changes widely, test them in a controlled environment to ensure compatibility with legacy systems. These steps align with CIS Controls 4.8 (disable unnecessary services) and 8.5 (collect detailed audit logs) for enhanced security.
+
+--------------------------------------------------------------------------------------------
+Query 5. Recommend CIS controls for Apache HTTP Server and Include recent CVES. 
+Response:
+
+
+Available Tools
+----------------
+cis_security_tool
+lookup_cve
+lookup_cisa_kev
+lookup_attack
+lookup_epss
+
+Tools Used
+----------------
+cis_security_tool
+lookup_cve
+
+===========================
+Here are CIS controls and recommendations for securing Apache HTTP Server, along with recent CVEs:
+
+CIS Controls for Apache HTTP Server
+
+1. Disable Unused Modules: Review and disable any unnecessary Apache modules to reduce the attack surface (CIS Control 4.8: Uninstall or Disable Unnecessary Services).
+2. Secure Configuration: Implement secure configurations as per the CIS Benchmark for Apache HTTP Server. For example, configure ServerTokens and ServerSignature to limit information disclosure.
+3. Access Control: Define and maintain role-based access control to restrict access to sensitive areas of the server (CIS Control 6.8).
+4. Enable Logging: Ensure logging is enabled and configured to capture detailed logs of access and errors for monitoring and incident response (CIS Control 8.5).
+5. Regular Audits: Conduct regular audits of server configuration and access controls to ensure compliance and detect unauthorized changes.
+
+Recent CVEs for Apache HTTP Server
+
+- CVE-1999-1412: Remote attackers can cause a denial of service (crash) via a flood of HTTP GET requests to CGI programs, generating many processes.
+- CVE-2000-0505: Allows remote attackers to list directory contents by requesting a URL with many / characters.
+- CVE-2000-1168: Allows remote attackers to cause denial of service and possibly execute arbitrary commands via a long GET request.
+- CVE-2001-1556: Log files may contain unfiltered client-supplied control characters, allowing attackers to hide requests or spoof IPs in logs.
+- CVE-2002-0240: When PHP is installed with Apache, remote attackers can obtain the server's full pathname via the HTTP OPTIONS method.
+
+Recommendations: Regularly update Apache HTTP Server, apply the latest patches, and follow CIS Benchmark guidance to mitigate these and other vulnerabilities. If you need details on more recent CVEs or specific mitigation steps, let me know!

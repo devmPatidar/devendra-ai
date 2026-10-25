@@ -5,7 +5,7 @@ from utils.classifier import classify_query
 
 memory = Memory()
 
-keypath = r"E:\Lenovo Ideapad 330\company-material\digital-workforce-transformation\ai-ey-upskill-13\key-vault\openai\api.key"
+keypath = r"C:\Users\user\Desktop\devendra-ai\work\key-vault\openai\open-ai-api.key"
 with open(keypath) as f:
     api_key = f.read().strip()
 

@@ -13,7 +13,7 @@ def ingest():
     print("\n📄 Loading CIS document...")
 
     loader = PyPDFLoader(
-        r"E:\Lenovo Ideapad 330\company-material\digital-workforce-transformation\ai-upskill-7\16-rag-capstone\cis-basic\data\cis_docs\CIS_Microsoft_Windows_11_Enterprise_Benchmark_v5.0.1.pdf"
+        r"C:\Users\user\Desktop\devendra-ai\work\capstone\17-capstone-part-1\cis-basic\data\cis_docs\CIS_Microsoft_Windows_11_Enterprise_Benchmark_v5.0.1.pdf"
     )
 
     documents = loader.load()

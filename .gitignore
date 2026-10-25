@@ -9,6 +9,7 @@ __pycache__/
 *.py[cod]
 .venv/
 venv/
+work/langflow/
 *.egg-info/
 .ipynb_checkpoints/
 
